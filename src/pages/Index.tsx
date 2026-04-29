@@ -9,18 +9,23 @@ import { Reveal } from "@/components/Reveal";
 import { Particles } from "@/components/Particles";
 import { CountUp } from "@/components/CountUp";
 
-import heroJerusalem from "@/assets/hero-jerusalem.jpg";
-import coupleKotel from "@/assets/couple-kotel.jpg";
-import vipCar from "@/assets/vip-car.jpg";
-import clinicInterior from "@/assets/clinic-interior.jpg";
-import womanDental from "@/assets/woman-dental.jpg";
-import jewishQuarter from "@/assets/jewish-quarter.jpg";
-import manKotel from "@/assets/man-kotel.jpg";
-import deadSea from "@/assets/dead-sea.jpg";
-import shabbatTable from "@/assets/shabbat-table.jpg";
-import dentistImg from "@/assets/dentist.jpg";
-import coupleIsrael from "@/assets/couple-israel.jpg";
-import jerusalemDusk from "@/assets/jerusalem-dusk.jpg";
+/* Media assets are served from /public/media (numbered 1–14 per asset list) */
+const MEDIA = {
+  heroVideo: "/media/1.mp4",
+  coupleKotel: "/media/2.png",
+  vipCar: "/media/3.png",
+  clinicInterior: "/media/4.png",
+  womanDental: "/media/5.png",
+  jewishQuarterVideo: "/media/6.mp4",
+  manKotel: "/media/7.png",
+  deadSea: "/media/8.png",
+  shabbatTable: "/media/9.png",
+  dentist: "/media/10.png",
+  arrivalVideo: "/media/11.mp4",
+  testimonialVideo: "/media/12.mp4",
+  coupleIsrael: "/media/13.png",
+  jerusalemDusk: "/media/14.png",
+};
 
 /* ──────────────────────── HERO ──────────────────────── */
 const Hero = () => {
@@ -31,12 +36,17 @@ const Hero = () => {
   const overlay = useTransform(scrollYProgress, [0, 1], [0.35, 0.85]);
 
   return (
-    <section ref={ref} id="top" className="relative h-[100svh] min-h-[760px] w-full overflow-hidden bg-ink">
+    <section ref={ref} id="top" className="relative flex h-[100svh] min-h-[760px] w-full flex-col overflow-hidden bg-ink">
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <img
-          src={heroJerusalem}
-          alt="Aerial view of Jerusalem's Old City at golden hour with the Western Wall and Dome of the Rock"
-          className="h-full w-full object-cover ken-burns"
+        <video
+          src={MEDIA.heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-label="Aerial drone shot gliding over Jerusalem's Old City at golden hour"
+          className="h-full w-full object-cover"
           width={1920}
           height={1080}
         />
@@ -48,11 +58,9 @@ const Hero = () => {
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero-overlay)" }} />
       <Particles count={36} />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1480px] flex-col justify-end px-6 pb-20 lg:px-12 lg:pb-28">
-        <Reveal delay={0.3}>
-          <span className="eyebrow text-gold-bright">Lumeor — Israel VIP Dental Tourism</span>
-        </Reveal>
-
+      {/* flex-1 spacer fills remaining height, pushing content firmly to the bottom */}
+      <div className="flex-1" />
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-6 pb-20 pt-24 lg:px-12 lg:pb-28">
         <h1 className="mt-6 max-w-5xl font-serif text-[clamp(2.5rem,6.4vw,6.25rem)] font-light leading-[0.98] tracking-tight text-ivory text-balance">
           {["You've Been Meaning to Go to Israel", "Your Whole Life."].map((line, i) => (
             <Reveal key={i} as="span" delay={0.5 + i * 0.18} y={50} className="block">
@@ -109,7 +117,7 @@ const Hook = () => {
         <div ref={ref} className="relative h-[480px] overflow-hidden lg:h-[720px]">
           <motion.img
             style={{ y }}
-            src={coupleKotel}
+            src={MEDIA.coupleKotel}
             alt="A Jewish couple in their late 60s standing together at the Western Wall"
             loading="lazy"
             width={1920}
@@ -172,10 +180,10 @@ const Included = () => (
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="overflow-hidden">
-            <img src={vipCar} alt="Black VIP car at Ben Gurion Airport" loading="lazy" width={1920} height={1280} className="h-full w-full object-cover transition-transform duration-[1400ms] hover:scale-105" />
+            <img src={MEDIA.vipCar} alt="Black VIP car at Ben Gurion Airport" loading="lazy" width={1920} height={1280} className="h-full w-full object-cover transition-transform duration-[1400ms] hover:scale-105" />
           </div>
           <div className="overflow-hidden mt-12">
-            <img src={clinicInterior} alt="Lumeor clinic interior — premium suite" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1400ms] hover:scale-105" />
+            <img src={MEDIA.clinicInterior} alt="Lumeor clinic interior — premium suite" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1400ms] hover:scale-105" />
           </div>
         </div>
       </div>
@@ -216,7 +224,7 @@ const Savings = () => (
     <div className="mx-auto max-w-[1480px] px-6 lg:px-12">
       <div className="grid items-end gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="overflow-hidden">
-          <img src={womanDental} alt="Confident American woman in her late 60s smiling in a premium dental chair" loading="lazy" width={1920} height={1280} className="h-[480px] w-full object-cover lg:h-[640px]" />
+          <img src={MEDIA.womanDental} alt="Confident American woman in her late 60s smiling in a premium dental chair" loading="lazy" width={1920} height={1280} className="h-[480px] w-full object-cover lg:h-[640px]" />
         </div>
         <div>
           <Reveal><span className="eyebrow">Section 04 — The Savings</span></Reveal>
@@ -277,14 +285,18 @@ const Israel = () => {
   return (
     <section className="relative overflow-hidden bg-ink text-ivory">
       <div ref={ref} className="relative h-[80vh] min-h-[640px] overflow-hidden">
-        <motion.img
+        <motion.video
           style={{ y: yBg }}
-          src={jewishQuarter}
-          alt="Cinematic walk through the narrow stone alleys of Jerusalem's Jewish Quarter"
-          loading="lazy"
+          src={MEDIA.jewishQuarterVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-label="Slow cinematic walk through the narrow stone alleys of Jerusalem's Jewish Quarter"
           width={1920}
           height={1080}
-          className="absolute inset-0 h-[130%] w-full object-cover ken-burns"
+          className="absolute inset-0 h-[130%] w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/20 to-ink" />
         <div className="absolute inset-0 mx-auto flex max-w-[1480px] flex-col justify-end px-6 pb-20 lg:px-12 lg:pb-28">
@@ -308,13 +320,13 @@ const Israel = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <Reveal delay={0.1} className="aspect-[4/5] overflow-hidden">
-              <img src={manKotel} alt="A Jewish man in his 70s standing alone at the Western Wall" loading="lazy" width={1920} height={1280} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
+              <img src={MEDIA.manKotel} alt="A Jewish man in his 70s standing alone at the Western Wall" loading="lazy" width={1920} height={1280} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
             </Reveal>
             <Reveal delay={0.18} className="aspect-square overflow-hidden mt-10">
-              <img src={deadSea} alt="The Dead Sea at sunrise" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
+              <img src={MEDIA.deadSea} alt="The Dead Sea at sunrise" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
             </Reveal>
             <Reveal delay={0.24} className="col-span-2 aspect-[16/9] overflow-hidden">
-              <img src={shabbatTable} alt="Shabbat dinner table set in a Jerusalem home" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
+              <img src={MEDIA.shabbatTable} alt="Shabbat dinner table set in a Jerusalem home" loading="lazy" width={1080} height={1080} className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-110" />
             </Reveal>
           </div>
         </div>
@@ -329,7 +341,7 @@ const About = () => (
     <div className="mx-auto grid max-w-[1480px] gap-16 px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:px-12">
       <div className="relative">
         <div className="overflow-hidden">
-          <img src={dentistImg} alt="Senior Israeli dentist in a white coat" loading="lazy" width={1920} height={1280} className="h-[640px] w-full object-cover" />
+          <img src={MEDIA.dentist} alt="Senior Israeli dentist in a white coat" loading="lazy" width={1920} height={1280} className="h-[640px] w-full object-cover" />
         </div>
         <div className="absolute -bottom-6 -right-6 hidden border border-gold/40 bg-ivory p-6 lg:block">
           <p className="font-serif text-5xl font-light text-ink">Lumeor</p>
@@ -390,6 +402,33 @@ const HowItWorks = () => (
           </Reveal>
         ))}
       </div>
+
+      <div className="mt-24 grid items-center gap-12 lg:mt-32 lg:grid-cols-[auto_1fr] lg:gap-20">
+        <Reveal>
+          <div className="relative mx-auto aspect-[9/16] w-[260px] overflow-hidden border border-gold/30 lg:mx-0 lg:w-[340px]">
+            <video
+              src={MEDIA.arrivalVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label="A distinguished American man stepping through the arrivals gate at an airport"
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ivory/10" />
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <span className="eyebrow text-gold-bright">The Arrival</span>
+          <p className="mt-6 font-serif text-[clamp(1.6rem,2.6vw,2.6rem)] font-light leading-[1.15] text-ivory text-balance">
+            The moment you walk through the arrivals gate, <span className="italic gold-text">your VIP journey begins.</span>
+          </p>
+          <p className="mt-6 max-w-xl font-sans text-[15px] leading-[1.85] text-ivory/70">
+            Your driver is waiting. Your hotel is confirmed. Your coordinator is on WhatsApp. Every detail handled before your feet touch Israeli soil.
+          </p>
+        </Reveal>
+      </div>
     </div>
   </section>
 );
@@ -413,8 +452,29 @@ const Testimonials = () => {
       <div className="relative mx-auto max-w-[1480px] px-6 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr] lg:gap-24">
           <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden">
-              <img src={coupleIsrael} alt="An American Jewish couple in their late 60s smiling in Israel" loading="lazy" width={1080} height={1350} className="h-full w-full object-cover" />
+            <div className="grid grid-cols-2 gap-4">
+              <Reveal className="aspect-[9/16] overflow-hidden border border-gold/30">
+                <video
+                  src={MEDIA.testimonialVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="A woman in her late 60s smiling warmly at the camera, showing perfect natural-looking teeth"
+                  className="h-full w-full object-cover"
+                />
+              </Reveal>
+              <Reveal delay={0.12} className="aspect-[4/5] overflow-hidden mt-12">
+                <img
+                  src={MEDIA.coupleIsrael}
+                  alt="An American Jewish couple in their late 60s smiling in Israel"
+                  loading="lazy"
+                  width={1080}
+                  height={1350}
+                  className="h-full w-full object-cover transition-transform duration-[1600ms] hover:scale-105"
+                />
+              </Reveal>
             </div>
           </div>
 
@@ -535,7 +595,7 @@ const FinalCTA = () => {
     <section ref={ref} id="cta" className="relative overflow-hidden bg-ink text-ivory">
       <motion.img
         style={{ y, scale }}
-        src={jerusalemDusk}
+        src={MEDIA.jerusalemDusk}
         alt="Jerusalem's Old City skyline at dusk with the golden Dome of the Rock"
         loading="lazy"
         width={1920}

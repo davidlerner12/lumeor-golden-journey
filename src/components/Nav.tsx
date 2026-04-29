@@ -22,20 +22,20 @@ export const Nav = () => {
     >
       <div className="mx-auto flex h-20 max-w-[1480px] items-center justify-between px-6 lg:px-12">
         <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Lumeor" className="h-7 w-auto" width={140} height={32} />
+          <img src={logo} alt="Lumeor" className="h-14 w-auto" width={280} height={56} />
         </a>
         <nav className="hidden items-center gap-10 lg:flex">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="font-sans text-[11px] uppercase tracking-[0.22em] text-ivory/75 transition-colors hover:text-gold-bright"
+              className="font-sans text-[16px] uppercase tracking-[0.22em] text-ivory/75 transition-colors hover:text-gold-bright"
             >
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="#cta" className="btn-gold !px-6 !py-3 text-[11px]">Check Availability</a>
+        <a href="#cta" className="btn-gold !px-6 !py-3 text-[16px]">Check Availability</a>
       </div>
     </motion.header>
   );
