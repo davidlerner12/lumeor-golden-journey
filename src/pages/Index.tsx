@@ -84,10 +84,10 @@ const Hero = () => {
 
         <Reveal delay={1.55}>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="tel:+18888341049" className="btn-gold pulse-glow">
+            <a href="tel:+18888240099" className="btn-gold pulse-glow">
               <Phone className="mr-2 h-4 w-4" /> Call Now
             </a>
-            <a href="tel:+18888341049" className="btn-ghost-gold">
+            <a href="tel:+18888240099" className="btn-ghost-gold">
               Call Now — Get My Free Quote
             </a>
           </div>
@@ -270,7 +270,7 @@ const Savings = () => (
       </Reveal>
       <Reveal delay={0.3}>
         <div className="mt-10 flex justify-center">
-          <a href="tel:+18888341049" className="btn-gold pulse-glow">Call Now — Get My Personal Quote</a>
+          <a href="tel:+18888240099" className="btn-gold pulse-glow">Call Now — Get My Personal Quote</a>
         </div>
       </Reveal>
     </div>
@@ -627,10 +627,10 @@ const FinalCTA = () => {
 
         <Reveal delay={0.4}>
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="tel:+18888341049" className="btn-gold pulse-glow">
+            <a href="tel:+18888240099" className="btn-gold pulse-glow">
               <Phone className="mr-2 h-4 w-4" /> Call Now to Check Availability
             </a>
-            <a href="tel:+18888341049" className="btn-ghost-gold">Call Now — Get My Free Quote</a>
+            <a href="tel:+18888240099" className="btn-ghost-gold">Call Now — Get My Free Quote</a>
           </div>
           <p className="mt-6 font-serif text-lg italic text-gold-bright">Call us now — a real person answers.</p>
         </Reveal>
@@ -653,8 +653,8 @@ const Footer = () => (
         </div>
         <div className="space-y-3">
           <p className="eyebrow">Contact</p>
-          <p className="font-sans text-[15px] text-ivory/85">WhatsApp: <a className="hover:text-gold" href="https://wa.me/18888341049">Open chat</a></p>
-          <p className="font-sans text-[15px] text-ivory/85">Phone: +1 888 834 1049</p>
+          <p className="font-sans text-[15px] text-ivory/85">WhatsApp: <a className="hover:text-gold" href="https://wa.me/18888240099">Open chat</a></p>
+          <p className="font-sans text-[15px] text-ivory/85">Phone: +1 888 824 0099</p>
           <p className="font-sans text-[15px] text-ivory/85">Email: <a className="hover:text-gold" href="mailto:info@lumeor.com">info@lumeor.com</a></p>
         </div>
         <div className="space-y-3">
