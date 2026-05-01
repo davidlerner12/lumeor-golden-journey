@@ -1,25 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { useInView, animate } from "framer-motion";
 
 interface Props { value: number; prefix?: string; suffix?: string; duration?: number; className?: string; }
 
-export const CountUp = ({ value, prefix = "", suffix = "", duration = 1800, className }: Props) => {
+export const CountUp = ({ value, prefix = "", suffix = "", duration = 2, className }: Props) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10%" });
+  const inView = useInView(ref, { once: true, amount: "some" });
   const [n, setN] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(Math.round(eased * value));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+
+    const controls = animate(0, value, {
+      duration: duration,
+      ease: "easeOut",
+      onUpdate: (v) => setN(Math.round(v)),
+    });
+
+    return () => controls.stop();
   }, [inView, value, duration]);
 
   return (
@@ -28,3 +26,5 @@ export const CountUp = ({ value, prefix = "", suffix = "", duration = 1800, clas
     </span>
   );
 };
+
+

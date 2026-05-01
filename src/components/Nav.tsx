@@ -6,7 +6,7 @@ const links = [
   { label: "Treatments", href: "#savings" },
   { label: "Savings", href: "#savings" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Book a Call", href: "#cta" },
+  { label: "Book a Call", href: "tel:+18888341049" },
 ];
 
 export const Nav = () => {
@@ -35,8 +35,9 @@ export const Nav = () => {
             </a>
           ))}
         </nav>
-        <a href="#cta" className="btn-gold !px-6 !py-3 text-[16px]">Check Availability</a>
+        <a href="tel:+18888341049" className="btn-gold !px-6 !py-3 text-[16px]">Check Availability</a>
       </div>
     </motion.header>
+
   );
 };
