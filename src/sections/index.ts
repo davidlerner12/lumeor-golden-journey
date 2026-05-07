@@ -1,0 +1,13 @@
+export { About } from "./About";
+export { BeforeAfter } from "./BeforeAfter";
+export { Faq } from "./Faq";
+export { FinalCta } from "./FinalCta";
+export { Hero } from "./Hero";
+export { Hook } from "./Hook";
+export { HowItWorks } from "./HowItWorks";
+export { Included } from "./Included";
+export { Israel } from "./Israel";
+export { Pricing } from "./Pricing";
+export { SmileIn24Hours } from "./SmileIn24Hours";
+export { Testimonials } from "./Testimonials";
+export { WhyIsrael } from "./WhyIsrael";
