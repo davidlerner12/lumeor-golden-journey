@@ -19,9 +19,9 @@ export const Hero = () => {
     <section
       ref={ref}
       id="top"
-      className="relative flex h-[100svh] min-h-[760px] w-full flex-col overflow-hidden bg-ink"
+      className="relative flex min-h-[100svh] w-full flex-col bg-ink"
     >
-      <motion.div style={{ y, scale }} className="absolute inset-0">
+      <motion.div style={{ y, scale }} className="absolute inset-0 overflow-hidden">
         <video
           src={MEDIA.heroVideo}
           autoPlay
@@ -56,7 +56,7 @@ export const Hero = () => {
             </Reveal>
           ))}
           <Reveal as="span" delay={0.95} y={50} className="block italic shimmer-text">
-            Now You Have a Reason That Saves You $60,000.
+            Now You Have a Reason That Saves You $13,000.
           </Reveal>
         </h1>
 

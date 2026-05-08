@@ -18,7 +18,7 @@ export const About = () => (
         <div className="absolute -bottom-6 -right-6 hidden border border-gold/40 bg-ivory p-6 lg:block">
           <p className="font-serif text-5xl font-light text-ink">Lumeor</p>
           <p className="mt-1 font-sans text-[10px] uppercase tracking-[0.3em] text-ink/60">
-            Tel Aviv · Israel
+               Israel
           </p>
         </div>
       </div>
@@ -35,11 +35,11 @@ export const About = () => (
         <div className="mt-10 space-y-6 font-sans text-[16px] leading-[1.85] text-ink/80 max-w-xl">
           <Reveal delay={0.15}>
             <p>
-              Israel has one of the highest ratios of dentists per capita in the world. Israeli
-              dental training is internationally accredited, and many of Lumeor's specialists
-              completed advanced fellowships in the United States and Europe. The materials,
-              instrumentation, and technology at Lumeor are identical to what you would find at a
-              top practice in New York or Los Angeles.
+            Lumeor combines advanced digital implantology, complex full-mouth rehabilitation, 
+            and modern aesthetic treatment planning in a premium boutique setting. 
+            The clinic specializes in complex surgical cases using advanced techniques, 
+            precision-guided implant placement, premium implant systems, 
+            and a highly personalized treatment approach designed around both function and facial aesthetics.
             </p>
           </Reveal>
           <Reveal delay={0.2}>

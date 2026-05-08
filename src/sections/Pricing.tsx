@@ -48,18 +48,18 @@ export const Pricing = () => (
             <Reveal delay={0.06} className="bg-ivory p-8 lg:p-10">
               <p className="eyebrow text-ink/55">Average USA Price</p>
               <p className="mt-4 font-serif text-3xl font-light text-ink/55 line-through lg:text-4xl">
-                $80,000
+                $38,000
               </p>
             </Reveal>
             <Reveal delay={0.12} className="bg-ivory p-8 lg:p-10">
               <p className="eyebrow text-ink/55">Lumeor Israel Price</p>
-              <p className="mt-4 font-serif text-3xl font-light text-ink lg:text-4xl">₪60,000</p>
-              <p className="mt-1 font-sans text-[13px] text-ink/60">~$17,000</p>
+              <p className="mt-4 font-serif text-3xl font-light text-ink lg:text-4xl">₪72,000</p>
+              <p className="mt-1 font-sans text-[13px] text-ink/60">~$25,000</p>
             </Reveal>
             <Reveal delay={0.18} className="bg-ink p-8 text-ivory lg:p-10">
               <p className="eyebrow text-gold-bright">Estimated Savings</p>
               <p className="mt-4 font-serif text-3xl font-medium gold-text lg:text-[40px]">
-                <CountUp value={60000} prefix="Over $" />
+                <CountUp value={13000} prefix="Over $" />
               </p>
             </Reveal>
           </div>
@@ -68,8 +68,9 @@ export const Pricing = () => (
 
       <Reveal delay={0.2}>
         <p className="mx-auto mt-16 max-w-3xl text-center font-sans text-[16px] leading-[1.85] text-ink/75">
-          Most patients save enough on treatment alone to fully cover flights, hotel, transportation,
-          and still spend significantly less than they would in the United States.
+        Most patients still save over $13,000 compared to completing the same treatment in the United States 
+        — while receiving a fully managed experience that includes hotel accommodation, private transportation, 
+        and dedicated patient coordination throughout their stay
         </p>
       </Reveal>
       <Reveal delay={0.25}>
