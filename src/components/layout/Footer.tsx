@@ -22,20 +22,8 @@ export const Footer = () => (
         </div>
 
         <div className="space-y-3">
-          <p className="eyebrow">Contact</p>
-          <p className="font-sans text-[15px] text-ivory/85">
-            WhatsApp:{" "}
-            <a className="hover:text-gold" href={CONTACT.whatsappUrl}>
-              Open chat
-            </a>
-          </p>
+          <p className="eyebrow">Contact</p>          
           <p className="font-sans text-[15px] text-ivory/85">Phone: {CONTACT.phoneDisplay}</p>
-          <p className="font-sans text-[15px] text-ivory/85">
-            Email:{" "}
-            <a className="hover:text-gold" href={`mailto:${CONTACT.email}`}>
-              {CONTACT.email}
-            </a>
-          </p>
         </div>
 
         <div className="space-y-3">
