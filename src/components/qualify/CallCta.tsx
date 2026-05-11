@@ -26,7 +26,13 @@ export const CallCta = ({
       type={type}
       onClick={(e) => {
         onClick?.(e);
-        if (!e.defaultPrevented) open(tel);
+        if (!e.defaultPrevented) {
+          // Fire Meta Pixel event for clicking the Call CTA
+          if (typeof window !== "undefined" && (window as any).fbq) {
+            (window as any).fbq("track", "Contact");
+          }
+          open(tel);
+        }
       }}
       {...rest}
     >
