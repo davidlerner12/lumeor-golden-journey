@@ -35,17 +35,21 @@ export const CallCta = ({
 
             // Send webhook for Conversions API (CAPI) via Zapier
             const urlParams = new URLSearchParams(window.location.search);
-            fetch("https://hooks.zapier.com/hooks/catch/27092509/4yk399y/", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                event_name: "Contact",
-                event_time: Math.floor(Date.now() / 1000),
-                event_source_url: window.location.href,
-                user_agent: navigator.userAgent,
-                fbclid: urlParams.get("fbclid") || "",
-              }),
-            }).catch(console.error);
+            const webhookUrl = import.meta.env.VITE_ZAPIER_CAPI_WEBHOOK;
+            
+            if (webhookUrl) {
+              fetch(webhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  event_name: "Contact",
+                  event_time: Math.floor(Date.now() / 1000),
+                  event_source_url: window.location.href,
+                  user_agent: navigator.userAgent,
+                  fbclid: urlParams.get("fbclid") || "",
+                }),
+              }).catch(console.error);
+            }
           }
           open(tel);
         }
